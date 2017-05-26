@@ -2,6 +2,7 @@ package com.example.shoo.gptrial2;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,6 +30,8 @@ public class HomeActivityFragment extends Fragment {
         View rootView= inflater.inflate(R.layout.fragment_home, container, false);
 
         Button check = (Button)rootView.findViewById(R.id.btnCHeck);
+
+
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,7 +54,6 @@ public class HomeActivityFragment extends Fragment {
                 getActivity().startService(i);
             }
         });
-
         return rootView;
     }
 

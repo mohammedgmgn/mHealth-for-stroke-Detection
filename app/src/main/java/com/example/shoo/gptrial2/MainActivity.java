@@ -14,13 +14,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         String path = " ";
      //   gptest.fileReader r= new gptest.fileReader(path);
 
         //HomePage
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-        String restoredText = prefs.getString("rememberMe",null);
+      //  SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        //String restoredText = prefs.getString("rememberMe",null);
 
 //        if(restoredText=="t")
 //        {
@@ -44,8 +43,21 @@ public class MainActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this,SignINActivity.class);
-                startActivity(i);
+                if(SaveSharedPreference.getUserName(MainActivity.this).length()>0)
+                {
+                    Intent i= new Intent(getApplicationContext(),HomeActivity.class);
+                    startActivity(i);
+                    finish();
+
+                }
+                else
+                {
+
+                    Intent i = new Intent(MainActivity.this,SignINActivity.class);
+                    startActivity(i);
+                    finish();
+
+                }
             }
         });
 

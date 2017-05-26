@@ -26,15 +26,17 @@ public class SignINActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
         Toast.makeText(getApplicationContext(),"activity created",Toast.LENGTH_LONG).show();
+        /*
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         SharedPreferences.Editor editor=prefs.edit();
         String restoredText = prefs.getString("mail",dEFAULT);
         String restoredPass = prefs.getString("password",dEFAULT);
-
+*/
         rememberMe=(CheckBox)findViewById(R.id.cbRememberMe);
         mail = (EditText)findViewById(R.id.txtSignInMail);
         password = (EditText)findViewById(R.id.signInpassword);
-
+        SaveSharedPreference.setUserName(this,mail.getText().toString());
+/*
         if(restoredPass.equals(dEFAULT) || restoredText.equals(dEFAULT)){
             Toast.makeText(this,restoredText,Toast.LENGTH_LONG).show();
             Toast.makeText(this,restoredPass,Toast.LENGTH_LONG).show();
@@ -52,7 +54,7 @@ public class SignINActivity extends AppCompatActivity {
 
         editor.putString("rememberMe",isRemembered);
         editor.commit();
-
+*/
         signIn= (Button)findViewById(R.id.btnSignIn);
 
 
@@ -62,6 +64,7 @@ public class SignINActivity extends AppCompatActivity {
 
         Intent i= new Intent(getApplicationContext(),HomeActivity.class);
         startActivity(i);
+        finish();
 
        //Toast.makeText(this,"Gowa el-load",Toast.LENGTH_LONG).show();
 
